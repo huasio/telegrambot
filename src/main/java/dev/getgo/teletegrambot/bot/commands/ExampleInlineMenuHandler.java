@@ -1,7 +1,11 @@
-package com.github.unafraid.spring.bot.handlers.impl;
+package dev.getgo.teletegrambot.bot.commands;
 
-import com.github.unafraid.telegrambot.handlers.inline.*;
-import com.github.unafraid.telegrambot.handlers.inline.events.InlineCallbackEvent;
+import dev.getgo.teletegrambot.bot.bean.InlineButtonBuilder;
+import dev.getgo.teletegrambot.bot.bean.InlineContext;
+import dev.getgo.teletegrambot.bot.bean.InlineMenuBuilder;
+import dev.getgo.teletegrambot.bot.bean.InlineUserData;
+import dev.getgo.teletegrambot.bot.event.InlineCallbackEvent;
+import dev.getgo.teletegrambot.bot.handlers.AbstractInlineHandler;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -77,7 +81,7 @@ public class ExampleInlineMenuHandler extends AbstractInlineHandler {
     }
 
     private boolean handleButtonClick(InlineCallbackEvent event) throws TelegramApiException {
-        final InlineUserData userData = event.getContext().getUserData(event.getQuery().getFrom().getId());
+        final InlineUserData userData = event.getContext().getUserData(Math.toIntExact(event.getQuery().getFrom().getId()));
         final AnswerCallbackQuery answer = new AnswerCallbackQuery();
         answer.setCallbackQueryId(event.getQuery().getId());
         answer.setShowAlert(true);

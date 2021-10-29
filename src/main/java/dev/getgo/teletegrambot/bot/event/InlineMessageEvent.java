@@ -1,7 +1,7 @@
 package dev.getgo.teletegrambot.bot.event;
 
-import com.github.unafraid.telegrambot.handlers.inline.InlineButton;
-import com.github.unafraid.telegrambot.handlers.inline.InlineContext;
+import dev.getgo.teletegrambot.bot.bean.InlineButton;
+import dev.getgo.teletegrambot.bot.bean.InlineContext;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.bots.AbsSender;

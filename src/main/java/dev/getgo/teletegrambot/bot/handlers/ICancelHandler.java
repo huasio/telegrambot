@@ -1,6 +1,6 @@
 package dev.getgo.teletegrambot.bot.handlers;
 
-import com.github.unafraid.telegrambot.bots.AbstractTelegramBot;
+import dev.getgo.teletegrambot.bot.AbstractTelegramBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;

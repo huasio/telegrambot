@@ -1,8 +1,9 @@
 package dev.getgo.teletegrambot.services;
 
-import com.github.unafraid.telegrambot.handlers.ICommandHandler;
-import com.github.unafraid.telegrambot.handlers.ITelegramHandler;
 import dev.getgo.teletegrambot.bot.TelegramWebHookBot;
+import dev.getgo.teletegrambot.bot.handlers.ICommandHandler;
+import dev.getgo.teletegrambot.bot.handlers.ITelegramHandler;
+import dev.getgo.teletegrambot.bot.util.HttpProxyConfiger;
 import dev.getgo.teletegrambot.config.TelegramBotConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpEntity;
@@ -71,7 +72,7 @@ public class TelegramBotService extends TelegramWebHookBot {
         }
 
         if (!botCommandList.isEmpty()) {
-            execute(new SetMyCommands(botCommandList));
+            execute(new SetMyCommands(botCommandList, null, null));
         }
     }
 

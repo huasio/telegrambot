@@ -9,13 +9,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import dev.getgo.teletegrambot.bot.handlers.ICallbackQueryHandler;
-import dev.getgo.teletegrambot.bot.handlers.ICommandHandler;
-import dev.getgo.teletegrambot.bot.handlers.IMessageHandler;
-import dev.getgo.teletegrambot.bot.handlers.ITelegramHandler;
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import dev.getgo.teletegrambot.bot.handlers.*;
 import dev.getgo.teletegrambot.bot.util.BotUtil;
+import dev.getgo.teletegrambot.bot.util.HttpProxyConfiger;
+import dev.getgo.teletegrambot.bot.util.IThrowableFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -31,14 +32,15 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 public class AbstractTelegramBot extends TelegramLongPollingBot {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultTelegramBot.class);
 	private static final Pattern COMMAND_ARGS_PATTERN = Pattern.compile("\"([^\"]*)\"|([^\\s]+)");
-	
+
 	private final List<ITelegramHandler> handlers = new ArrayList<>();
 	private volatile IAccessLevelValidator accessLevelValidator = null;
 	
 	private final String _token;
 	private final String _username;
-	
+
 	public AbstractTelegramBot(String token, String username) {
+		super(HttpProxyConfiger.configProxy());
 		_token = token;
 		_username = username;
 	}

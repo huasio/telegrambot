@@ -2,16 +2,10 @@ spring:
   application:
     name: telegram-bot
 
-  datasource:
-    url: ${JDBC_URL}
-    username: ${JDBC_USERNAME}
-    password: ${JDBC_PASSWORD}
-
-  jpa:
-    show-sql: false
-    open-in-view: false
-    hibernate:
-      ddl-auto: update
-
 server:
   port: ${PORT:9090}
+
+TELEGRAM_URL: http://53ca-116-22-254-42.ngrok.io
+TELEGRAM_TOKEN: 2059448247:AAHt1V1i706Mc6JPju2goIR5Owgah8prVWw
+TELEGRAM_USERNAME: GetzyBot
+TELEGRAM_MAX_CONNECTIONS: 10

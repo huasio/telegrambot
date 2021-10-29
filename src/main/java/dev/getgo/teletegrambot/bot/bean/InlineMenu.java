@@ -1,8 +1,8 @@
 package dev.getgo.teletegrambot.bot.bean;
 
-import java.util.List;
+import dev.getgo.teletegrambot.bot.layout.IInlineMenuLayout;
 
-import com.github.unafraid.telegrambot.handlers.inline.layout.IInlineMenuLayout;
+import java.util.List;
 
 /**
  * @author UnAfraid

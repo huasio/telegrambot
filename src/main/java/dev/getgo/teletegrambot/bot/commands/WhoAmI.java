@@ -1,8 +1,8 @@
-package com.github.unafraid.spring.bot.handlers.impl;
+package dev.getgo.teletegrambot.bot.commands;
 
-import com.github.unafraid.telegrambot.bots.AbstractTelegramBot;
-import com.github.unafraid.telegrambot.handlers.ICommandHandler;
-import com.github.unafraid.telegrambot.util.BotUtil;
+import dev.getgo.teletegrambot.bot.AbstractTelegramBot;
+import dev.getgo.teletegrambot.bot.handlers.ICommandHandler;
+import dev.getgo.teletegrambot.bot.util.BotUtil;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;

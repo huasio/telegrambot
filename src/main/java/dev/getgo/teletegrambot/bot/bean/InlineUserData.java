@@ -6,9 +6,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import com.github.unafraid.telegrambot.handlers.inline.layout.IInlineMenuLayout;
-import com.github.unafraid.telegrambot.util.BotUtil;
-import com.github.unafraid.telegrambot.util.MapUtil;
+import dev.getgo.teletegrambot.bot.layout.IInlineMenuLayout;
+import dev.getgo.teletegrambot.bot.util.BotUtil;
+import dev.getgo.teletegrambot.bot.util.MapUtil;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.bots.AbsSender;

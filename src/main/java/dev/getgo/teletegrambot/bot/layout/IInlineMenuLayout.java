@@ -2,7 +2,7 @@ package dev.getgo.teletegrambot.bot.layout;
 
 import java.util.List;
 
-import com.github.unafraid.telegrambot.handlers.inline.InlineButton;
+import dev.getgo.teletegrambot.bot.bean.InlineButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 
 /**

@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
  * @author UnAfraid
  */
 @Configuration
-@Validated
 public class TelegramBotConfig {
     @Value("${TELEGRAM_TOKEN}")
     @NotNull

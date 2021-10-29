@@ -1,9 +1,10 @@
 package dev.getgo.teletegrambot.bot.bean;
 
+import dev.getgo.teletegrambot.bot.event.IInlineCallbackEvent;
+import dev.getgo.teletegrambot.bot.event.IInlineMessageEvent;
+
 import java.util.Objects;
 
-import com.github.unafraid.telegrambot.handlers.inline.events.IInlineCallbackEvent;
-import com.github.unafraid.telegrambot.handlers.inline.events.IInlineMessageEvent;
 
 /**
  * @author UnAfraid

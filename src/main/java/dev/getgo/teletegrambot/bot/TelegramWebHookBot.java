@@ -1,7 +1,6 @@
 package dev.getgo.teletegrambot.bot;
 
-import com.github.unafraid.telegrambot.bots.DefaultTelegramBot;
-import com.github.unafraid.telegrambot.handlers.ICommandHandler;
+import dev.getgo.teletegrambot.bot.handlers.ICommandHandler;
 import org.springframework.context.ApplicationContext;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;

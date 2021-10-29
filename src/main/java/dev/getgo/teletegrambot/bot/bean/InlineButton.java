@@ -2,8 +2,8 @@ package dev.getgo.teletegrambot.bot.bean;
 
 import java.util.UUID;
 
-import com.github.unafraid.telegrambot.handlers.inline.events.IInlineCallbackEvent;
-import com.github.unafraid.telegrambot.handlers.inline.events.IInlineMessageEvent;
+import dev.getgo.teletegrambot.bot.event.IInlineCallbackEvent;
+import dev.getgo.teletegrambot.bot.event.IInlineMessageEvent;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
 /**

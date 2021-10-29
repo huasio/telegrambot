@@ -3,7 +3,7 @@ package dev.getgo.teletegrambot.controller;
 import org.springframework.web.bind.annotation.*;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
-
+import dev.getgo.teletegrambot.services.TelegramBotService;
 /**
  * @author UnAfraid
  */

@@ -9,14 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import dev.getgo.teletegrambot.bot.handlers.*;
 import dev.getgo.teletegrambot.bot.util.BotUtil;
 import dev.getgo.teletegrambot.bot.util.HttpProxyConfiger;
 import dev.getgo.teletegrambot.bot.util.IThrowableFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;

@@ -11,16 +11,16 @@ public class HttpProxyConfiger {
         defaultBotOptions.setProxyHost("127.0.0.1");
         defaultBotOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP);
 
-        RequestConfig.Builder builder = RequestConfig.copy(RequestConfig.custom().build());
-
-        HttpHost httpHost = new HttpHost("127.0.0.1", 10809, "http");
-        RequestConfig requestConfig = builder
-                .setSocketTimeout(75000)
-                .setConnectTimeout(75000)
-                .setConnectionRequestTimeout(75000)
-                .setProxy(httpHost)
-                .build();
-        defaultBotOptions.setRequestConfig(requestConfig);
+//        RequestConfig.Builder builder = RequestConfig.copy(RequestConfig.custom().build());
+//
+//        HttpHost httpHost = new HttpHost("127.0.0.1", 10809, "http");
+//        RequestConfig requestConfig = builder
+//                .setSocketTimeout(75000)
+//                .setConnectTimeout(75000)
+//                .setConnectionRequestTimeout(75000)
+//                .setProxy(httpHost)
+//                .build();
+//        defaultBotOptions.setRequestConfig(requestConfig);
         return defaultBotOptions;
     }
 }

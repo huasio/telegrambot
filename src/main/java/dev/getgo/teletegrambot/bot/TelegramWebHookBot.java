@@ -12,8 +12,10 @@ import java.util.Map;
  * @author UnAfraid
  */
 public abstract class TelegramWebHookBot extends DefaultTelegramBot implements WebhookBot {
-    public TelegramWebHookBot(String token, String username, ApplicationContext appContext) {
+    public TelegramWebHookBot(String token, String username, ApplicationContext appContext, AccessLevelValidator accessLevelValidator) {
         super(token, username);
+
+        setAccessLevelValidator(accessLevelValidator);
 
         final Map<String, ICommandHandler> handlers = appContext.getBeansOfType(ICommandHandler.class);
         handlers.values().forEach(this::addHandler);

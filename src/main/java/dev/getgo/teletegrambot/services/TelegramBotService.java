@@ -1,5 +1,6 @@
 package dev.getgo.teletegrambot.services;
 
+import dev.getgo.teletegrambot.bot.AccessLevelValidator;
 import dev.getgo.teletegrambot.bot.TelegramWebHookBot;
 import dev.getgo.teletegrambot.bot.handlers.ICommandHandler;
 import dev.getgo.teletegrambot.bot.handlers.ITelegramHandler;
@@ -9,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
@@ -19,6 +21,8 @@ import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +34,8 @@ public class TelegramBotService extends TelegramWebHookBot {
     private final String webPath;
     private final TelegramBotConfig config;
 
-    public TelegramBotService(TelegramBotConfig config, ApplicationContext appContext) throws Exception {
-        super(config.getToken(), config.getUsername(), appContext);
+    public TelegramBotService(TelegramBotConfig config, ApplicationContext appContext, AccessLevelValidator accessLevelValidator) throws Exception {
+        super(config.getToken(), config.getUsername(), appContext, accessLevelValidator);
         this.config = config;
         this.webPath = config.getUrl();
         init();
@@ -85,6 +89,7 @@ public class TelegramBotService extends TelegramWebHookBot {
             headers.add("Accept", "application/json");
 
             final String setWebhookUrl = String.format("https://api.telegram.org/bot%s/%s", getBotToken(), SetWebhook.PATH);
+            rest.setRequestFactory(getFactory());
             rest.exchange(setWebhookUrl, HttpMethod.POST, new HttpEntity<>(setWebhook, headers), ApiResponse.class);
         } catch (Exception e) {
             throw new TelegramApiRequestException("Error executing setWebHook method", e);
@@ -94,5 +99,18 @@ public class TelegramBotService extends TelegramWebHookBot {
     @Override
     public String getBotPath() {
         return webPath;
+    }
+
+    public static SimpleClientHttpRequestFactory getFactory() {
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        //单位为ms
+        factory.setReadTimeout(10 * 1000);
+        //单位为ms
+        factory.setConnectTimeout(30 * 1000);
+        // 代理的url网址或ip, port端口
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1", 10809);
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, address);
+        factory.setProxy(proxy);
+        return factory;
     }
 }
